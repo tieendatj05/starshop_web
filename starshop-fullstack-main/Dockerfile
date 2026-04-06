@@ -7,6 +7,6 @@ RUN mvn clean package -DskipTests
 # PHẦN 2: RUN (Chạy ứng dụng)
 FROM eclipse-temurin:21-jdk
 WORKDIR /app
-COPY --from=build /app/target/*.jar app.jar
+COPY --from=build /app/target/starshop-*.jar app.jar
 EXPOSE 8080
 ENTRYPOINT ["java", "-jar", "app.jar"]
