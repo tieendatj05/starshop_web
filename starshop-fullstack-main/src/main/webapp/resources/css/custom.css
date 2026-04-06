@@ -1,0 +1,935 @@
+/* custom.css */
+
+:root {
+    --primary-pastel-pink: #FFD1DC; /* Lighter Pink for header */
+    --secondary-pastel-pink: #FADADD; /* Lighter Pink for general bg-light */
+    --accent-pink: #FFC0CB; /* Light Pink - Adjusted for less intensity */
+    --text-dark: #333333;
+    --text-light: #666666;
+    --background-light: #FFF0F5; /* Lavender Blush */
+    --border-light: #E0BBE4;
+    --header-text-color: #1a1a1a; /* Made much darker for better contrast on light header */
+
+    /* New tokens for header/footer and buttons */
+    --header-bg: #FFF1F6; /* Slightly lighter than primary for a soft header */
+    --footer-bg: #FFF6FA; /* Very soft footer background */
+    --btn-radius: 12px; /* Default cute button radius */
+    --btn-padding-vertical: 10px;
+    --btn-padding-horizontal: 16px;
+    --btn-padding-vertical-sm: 6px;
+    --btn-padding-horizontal-sm: 10px;
+}
+
+/* Basic CSS Reset to remove default browser margins/paddings */
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: var(--background-light);
+    color: var(--text-dark);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin-top: 0 !important; /* Ensure no top margin on body */
+    padding-top: 0 !important; /* Ensure no top padding on body */
+}
+
+.navbar {
+    background-color: var(--primary-pastel-pink) !important; /* Use lighter pink for header */
+    border-bottom: 1px solid var(--border-light);
+    padding-top: 15px; /* Increased padding for more height */
+    padding-bottom: 15px; /* Increased padding for more height */
+    margin-top: 0 !important; /* Ensure no top margin on navbar */
+    z-index: 1030; /* Set a high z-index for the navbar */
+}
+
+.navbar-brand {
+    color: var(--header-text-color) !important; /* Use darker text for better contrast */
+    font-weight: bold;
+}
+
+.navbar-brand:hover {
+    color: var(--accent-pink) !important;
+}
+
+.nav-link {
+    color: var(--header-text-color) !important; /* Default nav-link color */
+    font-weight: bold;
+}
+
+.nav-link:hover:not(.btn) { /* Apply hover color only if not a button */
+    color: var(--accent-pink) !important;
+}
+
+.btn {
+    border-radius: 8px; /* Changed from 50px to 8px for rounded corners */
+    padding: 8px 20px; /* Adjust padding for better look */
+}
+
+.btn-primary {
+    background-color: var(--accent-pink);
+    border-color: var(--accent-pink);
+    color: var(--text-dark); /* Changed to dark text on pink background */
+}
+
+.btn-primary:hover {
+    background-color: white;
+    border-color: var(--accent-pink);
+    color: var(--text-dark) !important; /* Ensure text is dark on white hover */
+}
+
+.btn-primary:active, .btn-primary:focus {
+    background-color: #FF99AA !important; /* Darker pink when active/focused */
+    border-color: #FF99AA !important;
+    color: var(--text-dark) !important; /* Ensure text is dark on pink background */
+    box-shadow: none !important; /* Remove blue glow */
+}
+
+.btn-outline-primary {
+    color: var(--header-text-color); /* Changed to dark text for better contrast */
+    border-color: var(--accent-pink);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--accent-pink);
+    border-color: var(--accent-pink);
+    color: var(--text-dark) !important; /* Ensure text is dark on pink hover */
+}
+
+.btn-outline-primary:active, .btn-outline-primary:focus {
+    background-color: #FF99AA !important; /* Darker pink when active/focused */
+    border-color: #FF99AA !important;
+    color: var(--text-dark) !important; /* Ensure text is dark on pink background */
+    box-shadow: none !important; /* Remove blue glow */
+}
+
+/* Custom styles for btn-outline-success (used for search button) */
+.btn-outline-success {
+    color: var(--header-text-color); /* Dark text for better contrast */
+    border-color: var(--accent-pink); /* Use accent pink border */
+}
+
+.btn-outline-success:hover {
+    background-color: var(--accent-pink); /* Fill with accent pink on hover */
+    border-color: var(--accent-pink); /* Accent pink border on hover */
+    color: var(--text-dark) !important; /* Dark text on hover */
+}
+
+.btn-outline-success:active, .btn-outline-success:focus {
+    background-color: #FF99AA !important; /* Darker pink when active/focused */
+    border-color: #FF99AA !important;
+    color: var(--text-dark) !important; /* Dark text on pink background */
+    box-shadow: none !important; /* Remove blue glow */
+}
+
+/* New site-level header/footer utility classes */
+.site-header.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 1030; /* Ensure header is above most content */
+}
+
+.site-footer {
+    background-color: var(--footer-bg) !important;
+    border-top: 1px solid var(--border-light);
+    color: var(--text-dark) !important; /* Dark text for legibility on soft footer */
+}
+
+.btn-cute {
+    /* Softer, cleaner primary button */
+    border-radius: calc(var(--btn-radius) - 2px) !important;
+    padding: var(--btn-padding-vertical) var(--btn-padding-horizontal) !important;
+    font-weight: 600;
+    color: var(--header-text-color) !important;
+    background: linear-gradient(180deg, rgba(255,192,203,0.97), rgba(255,190,200,0.95)) !important; /* subtle gradient */
+    border: none !important; /* remove thick border */
+    box-shadow: none;
+    transition: transform 0.12s ease, background-color 0.12s ease, opacity 0.12s ease;
+}
+
+.btn-cute-sm {
+    border-radius: calc(var(--btn-radius) - 4px) !important;
+    padding: var(--btn-padding-vertical-sm) var(--btn-padding-horizontal-sm) !important;
+    font-weight: 600;
+    font-size: 0.95rem;
+}
+
+.btn-cute:hover, .btn-cute:focus {
+    background: rgba(255,192,203,0.98) !important;
+    transform: translateY(-1px);
+    opacity: 0.98;
+}
+
+/* New: ghost button — minimal, text-like, for header auth actions */
+.btn-ghost {
+    background: transparent !important;
+    border: none !important;
+    color: var(--text-dark) !important; /* slightly muted */
+    padding: 4px 8px !important;
+    border-radius: 8px !important;
+    font-weight: 500;
+    font-size: 0.95rem;
+    box-shadow: none !important;
+}
+
+.btn-ghost i { margin-right: 6px; opacity: 0.9; }
+
+.btn-ghost:hover, .btn-ghost:focus {
+    background-color: rgba(255,192,203,0.06) !important;
+    color: var(--header-text-color) !important;
+    transform: translateY(-1px);
+}
+
+/* Small circular search button (icon-only) */
+.btn-search {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    padding: 0 !important;
+    border-radius: 10px !important; /* softer than circle */
+    background: transparent !important;
+    color: var(--header-text-color) !important;
+    border: 1px solid rgba(26,26,26,0.06) !important; /* very light border */
+    transition: background-color 0.12s ease, transform 0.08s ease, border-color 0.12s ease;
+}
+
+.btn-search:hover, .btn-search:focus {
+    background-color: rgba(255,192,203,0.08) !important; /* soft pink on hover */
+    border-color: rgba(255,192,203,0.22) !important;
+    transform: translateY(-1px);
+}
+
+.nav-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--header-text-color) !important;
+    padding: 6px 8px;
+    border-radius: 10px;
+    transition: background-color 0.14s ease, transform 0.08s ease, color 0.12s ease;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.nav-ghost:hover, .nav-ghost:focus {
+    background-color: rgba(255,192,203,0.10);
+    color: var(--header-text-color) !important;
+    transform: translateY(-1px);
+}
+
+.input-group .btn-cute {
+    padding-left: 12px; /* tighten icon spacing */
+    padding-right: 12px;
+}
+
+/* Reduce overall button/shadow intensity site-wide for a cleaner look */
+.btn, .btn-cute, .btn-cute-outline {
+    box-shadow: none; /* default none; specific ones above add subtle shadows */
+}
+
+.dropdown-menu {
+    background-color: var(--secondary-pastel-pink);
+    border: 1px solid var(--border-light);
+    border-radius: 8px; /* Added border-radius for rounded corners */
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05); /* Added subtle shadow */
+    padding: 10px 0; /* Added padding for better spacing */
+    z-index: 2000;
+    margin-top: 18px !important; /* Đẩy dropdown xuống thấp hơn header, tránh bị che */
+}
+/* Elevate header dropdowns and mobile menu above page sticky elements */
+.site-header .dropdown-menu { z-index: 4000 !important; }
+.site-header .navbar-collapse.show { position: relative; z-index: 4000; }
+
+.dropdown-item {
+    color: var(--text-dark);
+    padding: 8px 15px; /* Adjusted padding for better look */
+    transition: background-color 0.2s ease, color 0.2s ease; /* Smooth transition */
+}
+
+.dropdown-item:hover {
+    background-color: var(--primary-pastel-pink); /* Lighter pink on hover */
+    color: var(--header-text-color); /* Ensure text is dark on hover */
+}
+
+.dropdown-header {
+    color: var(--text-light); /* Slightly lighter text for headers */
+    font-weight: bold;
+    padding: 8px 15px; /* Adjusted padding */
+    text-transform: uppercase; /* Make header text uppercase */
+    font-size: 0.85em;
+}
+
+.dropdown-divider {
+    border-top: 1px solid var(--border-light); /* Pastel border for divider */
+    margin: 5px 0; /* Adjusted margin */
+}
+
+.form-control {
+    border-color: var(--border-light);
+    border-radius: 8px; /* Make search input rounder */
+}
+
+.form-control:focus {
+    border-color: var(--accent-pink);
+    box-shadow: 0 0 0 0.25rem rgba(255, 105, 180, 0.25); /* Accent pink shadow */
+}
+
+.bg-light {
+    background-color: var(--secondary-pastel-pink) !important;
+}
+
+.bg-dark {
+    background-color: var(--primary-pastel-pink) !important; /* Using primary pink for footer */
+}
+
+.text-white {
+    color: var(--text-dark) !important; /* Change footer text to dark for contrast */
+}
+
+.main-content {
+    flex: 1;
+    padding-top: 120px !important; /* Increased space below fixed header */
+    padding-bottom: 20px; /* Add some space above the footer */
+}
+
+.p-5.mb-4.bg-light.rounded-3 {
+    background-color: var(--secondary-pastel-pink) !important;
+    border: 1px solid var(--border-light);
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+}
+
+.product-card {
+    border: none;
+    border-radius: 15px; /* Slightly more rounded cards */
+    overflow: hidden;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+    transition: transform .2s ease-in-out, box-shadow .2s ease-in-out;
+    background-color: white;
+}
+
+.product-card:hover {
+    transform: translateY(-5px) scale(1.02);
+    box-shadow: 0 8px 16px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+    border-bottom: 1px solid var(--border-light);
+    object-fit: cover;
+    width: 100%;
+    aspect-ratio: 1 / 1; /* Enforce square 1x1 */
+    height: auto; /* Let aspect-ratio determine height from width */
+}
+
+/* New generic class for 1x1 square images */
+.img-square-1x1 {
+    aspect-ratio: 1 / 1;
+    object-fit: cover;
+}
+
+.product-card .card-body {
+    padding: 15px;
+}
+
+.product-card .card-title a {
+    color: var(--text-dark);
+    font-weight: bold;
+    font-size: 1.1rem;
+}
+
+.product-card .card-title a:hover {
+    color: var(--accent-pink);
+}
+
+.price-section .text-danger {
+    color: var(--accent-pink) !important; /* Use accent pink for current price */
+}
+
+.original-price-card {
+    color: var(--text-light) !important;
+}
+
+.badge.bg-danger {
+    background-color: var(--accent-pink) !important;
+    color: white;
+}
+
+.list-group-item-action:hover {
+    background-color: var(--primary-pastel-pink);
+}
+
+/* Centered hero for rotating banner */
+.home-hero {
+    min-height: 70vh; /* Center focus on first view */
+    display: grid;
+    place-items: center;
+}
+
+/* Styles for Rotating Info */
+.rotating-info {
+    min-height: 180px; /* Taller for enlarged text */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--header-text-color); /* Fallback text color */
+    transition: opacity 1s ease-in-out, transform 1s ease-in-out; /* 2 x 1s phases total 2s */
+    text-transform: uppercase; /* Uppercase content */
+    letter-spacing: 0.05em; /* Slight spacing for readability */
+}
+
+/* Gradient, thicker text (with graceful fallback) */
+.gradient-text {
+    background: linear-gradient(90deg, var(--header-text-color) 0%, var(--accent-pink) 50%, #FF99AA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    /* Do not force transparent fill unless the UA supports background-clip text rendering; use feature query */
+    font-weight: 900;
+    color: var(--header-text-color); /* Fallback color for UAs that don't support background-clip text */
+}
+
+@supports ((-webkit-background-clip: text) or (background-clip: text)) {
+    .gradient-text {
+        -webkit-background-clip: text;
+        background-clip: text;
+        -webkit-text-fill-color: transparent; /* Hide native color so gradient shows */
+        color: transparent;
+    }
+}
+
+.rotating-info h1 {
+    font-size: 3.6rem; /* Larger headline for hero */
+    line-height: 1.08;
+    margin-bottom: 0.6rem;
+    color: var(--text-dark); /* Fallback if gradient not supported */
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.08);
+}
+
+.rotating-info p {
+    font-size: 1.9rem; /* Larger subtext */
+    color: var(--text-light); /* Fallback if gradient not supported */
+    text-shadow: 0.5px 0.5px 1px rgba(0,0,0,0.05);
+    margin: 0;
+}
+
+@media (max-width: 768px) {
+    .home-hero { min-height: 56vh; }
+    .rotating-info h1 { font-size: 2.6rem; }
+    .rotating-info p { font-size: 1.35rem; }
+}
+
+/* Section heading for products */
+.section-heading {
+    text-align: center;
+    margin: 2.5rem 0 0.75rem;
+    font-weight: 900;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+}
+
+/* Generic divider so it works outside of .section-heading context too */
+.section-divider {
+    width: 120px;
+    height: 5px;
+    margin: 0.25rem auto 2rem; /* small gap below title */
+    background: linear-gradient(90deg, var(--accent-pink), #FF99AA);
+    border-radius: 8px;
+    opacity: 0.85;
+}
+
+.section-heading + .section-divider {
+    width: 120px;
+    height: 5px;
+    margin: 0 auto 2rem;
+    background: linear-gradient(90deg, var(--accent-pink), #FF99AA);
+    border-radius: 8px;
+    opacity: 0.85;
+}
+
+/* Optional extra spacing for product section */
+.product-section { margin-top: 1rem; }
+
+/* Cherry Blossom Effect */
+.cherry-blossom-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* Allow clicks to pass through */
+    overflow: hidden;
+    z-index: -1; /* Behind other content by default */
+}
+
+/* Add an overlay variant so specific pages can place petals above content without blocking interactions */
+.cherry-blossom-container.overlay {
+    z-index: 1025; /* Above content, below header */
+    pointer-events: none; /* still non-interactive */
+}
+
+.petal {
+    position: absolute;
+    background-color: var(--accent-pink);
+    border-radius: 50%;
+    opacity: 0;
+    animation: fall linear infinite;
+    box-shadow: 0 0 5px rgba(255, 105, 180, 0.5); /* Accent pink shadow */
+}
+
+@keyframes fall {
+    0% {
+        transform: translateY(-10vh) rotate(0deg);
+        opacity: 0;
+    }
+    10% {
+        opacity: 0.8;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+/* New styles for product scroller */
+.product-row-container {
+    overflow: hidden; /* Hide scrollbars */
+    position: relative;
+    margin-bottom: 2rem;
+    padding: 1rem 0; /* Add padding for visual spacing */
+}
+
+.product-row {
+    display: flex;
+    flex-wrap: nowrap; /* Prevent wrapping */
+    gap: 1rem; /* Space between products */
+    transition: transform 0.5s ease-in-out; /* Smooth transition for sliding */
+    will-change: transform; /* Optimize for animation */
+}
+
+.product-item {
+    flex: 0 0 calc(25% - 0.75rem); /* 4 items per row, accounting for gap */
+    max-width: calc(25% - 0.75rem);
+    /* No transition here, as the parent row will transition */
+}
+
+/* Responsive adjustments for product items */
+@media (max-width: 1200px) {
+    .product-item {
+        flex: 0 0 calc(33.333% - 0.66rem); /* 3 items per row */
+        max-width: calc(33.333% - 0.66rem);
+    }
+}
+
+@media (max-width: 992px) {
+    .product-item {
+        flex: 0 0 calc(50% - 0.5rem); /* 2 items per row */
+        max-width: calc(50% - 0.5rem);
+    }
+}
+
+@media (max-width: 768px) {
+    .product-item {
+        flex: 0 0 calc(100% - 0.5rem); /* single column on small screens */
+        max-width: calc(100% - 0.5rem);
+    }
+}
+
+/* Modern minimalist auth panel (used by login/register) */
+.auth-panel {
+    background: rgba(255, 255, 255, 0.6); /* soft translucent card */
+    backdrop-filter: blur(6px); /* modern glassmorphism touch */
+    -webkit-backdrop-filter: blur(6px);
+    border: 1px solid rgba(26,26,26,0.06);
+    border-radius: 14px;
+    padding: 1.5rem;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.06);
+    color: var(--text-dark);
+}
+
+.auth-panel .form-label {
+    font-weight: 600;
+    color: rgba(26,26,26,0.85);
+}
+
+.auth-panel .form-control {
+    border-radius: 10px;
+    border: 1px solid rgba(26,26,26,0.08);
+    padding: 12px 14px;
+}
+
+.auth-panel .btn-cute {
+    border-radius: 10px;
+    padding: 10px 14px;
+    font-weight: 700;
+}
+
+/* Smaller variant for compact buttons */
+.auth-panel .btn-cute-sm {
+    padding: 8px 12px;
+    font-size: 0.95rem;
+}
+
+/* Slightly lift the panel on hover for desktop */
+@media (hover: hover) and (pointer: fine) {
+    .auth-panel:hover { transform: translateY(-3px); transition: transform 0.18s ease; }
+}
+
+/* Footer link utility - used by footer.jsp */
+.footer-link {
+    color: var(--text-dark);
+    text-decoration: none;
+    padding: 6px 8px;
+    border-radius: 8px;
+    transition: background-color 0.18s ease, color 0.18s ease, transform 0.08s ease;
+    font-weight: 600;
+}
+
+.footer-link:hover, .footer-link:focus {
+    background-color: rgba(255,192,203,0.12);
+    color: var(--header-text-color);
+    text-decoration: none;
+    transform: translateY(-1px);
+}
+
+/* Ensure small responsive spacing in footer */
+.site-footer .container > * { min-width: 0; }
+
+/* Animated gradient text utility for buttons/inline elements */
+.btn-gradient-text, .btn-gradient-text.animated-gradient, .gradient-btn-text {
+    background: linear-gradient(90deg, var(--header-text-color) 0%, var(--accent-pink) 50%, #FF99AA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent; /* transparent so gradient shows */
+    color: var(--header-text-color); /* fallback color for UAs without clip */
+}
+
+/* Global animated-gradient utility for moving gradient across text */
+.animated-gradient {
+    /* Ensure the gradient has room to move */
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease-in-out infinite;
+}
+
+/* Provide motion-reduction preference */
+@media (prefers-reduced-motion: reduce) {
+    .animated-gradient { animation: none; }
+}
+
+/* Keyframes for sweeping gradient animation */
+@keyframes gradientMove {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Make the animated gradient available as : the animated-gradient class already defined uses the same keyframes */
+
+/* Seamless search input + button styling */
+.input-group {
+    --search-radius: 12px;
+}
+
+.input-group .form-control {
+    border-radius: var(--search-radius) 0 0 var(--search-radius);
+    border-right: none;
+    background: #fff; /* keep input white for readability */
+    box-shadow: none;
+}
+
+.input-group .form-control::placeholder {
+    color: #9b7; /* subtle placeholder - will be overridden by user agents */
+}
+
+.input-group .btn-search {
+    border-radius: 0 var(--search-radius) var(--search-radius) 0 !important;
+    border-left: none !important; /* remove visible split */
+    padding: 0 10px !important;
+    height: calc(1.5em + 16px);
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    background: transparent !important; /* keep subtle */
+    color: var(--header-text-color) !important;
+    border: 1px solid rgba(26,26,26,0.06) !important;
+}
+
+/* Remove double border on small screens when input stacks */
+@media (max-width: 576px) {
+    .input-group .form-control {
+        border-radius: var(--search-radius) !important;
+        border-right: 1px solid var(--border-light);
+    }
+    .input-group .btn-search { border-radius: var(--search-radius) !important; border-left: 1px solid var(--border-light) !important; }
+}
+
+/* Make the search input and button visually aligned with header color tokens */
+.site-header .input-group .form-control,
+.site-header .input-group .btn-search {
+    background-clip: padding-box;
+    border-color: rgba(0,0,0,0.06);
+}
+
+/* Ensure the icon inside .btn-search uses subtle accent */
+.btn-search i, .btn-search .bi {
+    color: var(--accent-pink) !important;
+    font-size: 1.05rem;
+}
+
+/* Slight visual lift on focus for accessibility */
+.input-group .form-control:focus {
+    outline: none;
+    box-shadow: 0 0 0 0.18rem rgba(255,192,203,0.12);
+}
+
+.input-group .btn-search:focus {
+    outline: none;
+    box-shadow: 0 4px 12px rgba(255,192,203,0.06);
+}
+
+/* Make buttons with gradient text maintain good contrast on colored backgrounds */
+.btn .btn-gradient-text {
+    -webkit-text-fill-color: transparent;
+}
+
+/* Small helper: apply animated gradient to inline elements inside buttons */
+.btn .animated-gradient {
+    display: inline-block;
+    background-size: 200% 200%;
+    animation: gradientMove 6s ease-in-out infinite;
+}
+
+/* Unified pill-style search control */
+.search-pill {
+    border: 1px solid var(--border-light);
+    background: #fff;
+    padding: 4px; /* small inner padding so child controls breathe */
+    border-radius: var(--search-radius);
+    display: inline-flex;
+    align-items: center;
+}
+
+.search-pill .form-control {
+    border: none !important;
+    box-shadow: none !important;
+    border-radius: 0 !important;
+}
+
+.search-pill .btn-search {
+    border: none !important;
+    border-radius: 0 !important;
+    background: transparent !important;
+}
+
+/* When input stacks on mobile, ensure full-width and visible border */
+@media (max-width: 576px) {
+    .search-pill { width: 100%; }
+    .search-pill .form-control { width: 100%; }
+}
+
+/* Animated gradient on header controls when hovered/focused */
+.site-header .nav-ghost:hover > span,
+.site-header .nav-ghost:focus-visible > span,
+.site-header .btn-ghost:hover > span,
+.site-header .btn-ghost:focus-visible > span,
+.site-header .nav-link.dropdown-toggle:hover > span,
+.site-header .nav-link.dropdown-toggle:focus-visible > span {
+    background: linear-gradient(90deg, var(--header-text-color) 0%, var(--accent-pink) 50%, #FF99AA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent; /* fallback */
+    background-size: 200% 200%;
+    animation: gradientMove 4s ease-in-out infinite;
+}
+
+/* Also apply gradient to the label inside auth dropdown (if any) on hover/focus-visible */
+.site-header .dropdown-menu .dropdown-item:hover > span,
+.site-header .dropdown-menu .dropdown-item:focus-visible > span {
+    background: linear-gradient(90deg, var(--header-text-color) 0%, var(--accent-pink) 50%, #FF99AA 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    color: transparent;
+    background-size: 200% 200%;
+    animation: gradientMove 4s ease-in-out infinite;
+}
+
+/* For the icon-only search button, change icon color subtly on hover and focus-visible */
+.site-header .btn-search:hover i,
+.site-header .btn-search:focus-visible i {
+    color: #FF7BA9 !important; /* a slightly stronger pink for visibility */
+    transform: translateY(-1px);
+}
+
+/* Ensure keyboard focus shows the same effect as hover for entire control */
+.site-header .nav-ghost:focus-visible,
+.site-header .btn-ghost:focus-visible,
+.site-header .nav-link.dropdown-toggle:focus-visible,
+.site-header .btn-search:focus-visible {
+    box-shadow: 0 0 0 4px rgba(255,192,203,0.12);
+    border-radius: 10px;
+    outline: none; /* visual ring provided above */
+}
+
+/* Correct stacking for page title */
+.page-title-wrapper {
+    position: relative;
+    /* No z-index is needed, allow it to flow normally below the header */
+}
+
+/* New styles for promo-card */
+.promo-card {
+    border: 1px solid var(--border-light);
+    transition: all 0.2s ease-in-out;
+}
+
+.promo-card:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 12px rgba(0,0,0,0.08);
+}
+
+.promo-card .card-header {
+    background-color: var(--background-light);
+    border-bottom: 1px solid var(--border-light);
+}
+
+.promo-card .promo-code {
+    color: var(--accent-pink);
+    font-weight: bold;
+}
+
+/* Enforce uppercase for all shared page titles */
+.page-title-wrapper h1,
+.page-title-wrapper h2,
+.page-title-wrapper h3 {
+    text-transform: uppercase !important;
+}
+
+/* Style for the 'Saved' button */
+.btn-saved {
+    background-color: #FF99AA !important;
+    border-color: #FF99AA !important;
+    color: var(--text-dark) !important;
+    opacity: 0.85; /* Slightly muted to indicate disabled/saved state */
+}
+
+/* Profile page styles */
+.profile-card-wrapper { max-width: 720px; margin: 0 auto; }
+.profile-card { text-align: center; padding: 2rem 1.25rem; }
+.avatar-wrapper { width: 160px; height: 160px; margin: 0 auto 1rem; border-radius: 50%; overflow: hidden; display: grid; place-items: center; background: linear-gradient(180deg,#fff0f2,#fff); }
+.avatar-wrapper img { width: 100%; height: 100%; object-fit: cover; display: block; }
+.profile-name { font-size: 1.25rem; font-weight: 700; margin-bottom: .25rem; }
+.profile-username { color: #6b7280; margin-bottom: .75rem; display: block; }
+.profile-info { text-align: left; max-width: 100%; margin: 0 auto 1rem; }
+.profile-info .info-row { display:flex; justify-content:space-between; padding:.45rem 0; border-bottom: 1px dashed #eee; }
+.profile-ctas .btn { padding: .8rem 1.1rem; border-radius: var(--btn-radius); }
+
+/* Frame the personal info area */
+.profile-info-frame {
+    background: #fff;
+    border: 1px solid rgba(26,26,26,0.06);
+    border-radius: 12px;
+    padding: 1rem 1.25rem;
+    max-width: 520px;
+    margin: .5rem auto 0;
+    box-shadow: 0 8px 22px rgba(0,0,0,0.04);
+}
+.profile-info-frame dl { margin: 0; }
+.profile-info-frame dt { color: var(--text-light); font-size: .92rem; }
+.profile-info-frame dd { margin: 0 0 .6rem 0; color: var(--text-dark); font-weight: 600; }
+
+/* --- Modern, minimal button styles (primary + outline) --- */
+.btn-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background: rgba(255,192,203,0.14); /* soft pink wash */
+    color: var(--header-text-color);
+    border: 1px solid rgba(26,26,26,0.06);
+    padding: .9rem 1.15rem;
+    font-weight: 700;
+    border-radius: var(--btn-radius);
+    box-shadow: none;
+    transition: background-color .12s ease, transform .08s ease, border-color .12s ease, box-shadow .12s ease, opacity .12s ease;
+}
+.btn-modern:hover, .btn-modern:focus {
+    background: rgba(255,192,203,0.20);
+    border-color: rgba(255,192,203,0.24);
+    transform: translateY(-1px);
+    box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+}
+.btn-modern:active {
+    transform: translateY(0);
+}
+
+.btn-outline-modern {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: .5rem;
+    background: transparent;
+    color: var(--header-text-color);
+    border: 1px solid rgba(26,26,26,0.10);
+    padding: .8rem 1.05rem;
+    font-weight: 600;
+    border-radius: var(--btn-radius);
+    transition: background-color .12s ease, transform .08s ease, border-color .12s ease, box-shadow .12s ease;
+}
+.btn-outline-modern:hover, .btn-outline-modern:focus {
+    background: rgba(255,192,203,0.06);
+    transform: translateY(-1px);
+    border-color: rgba(255,192,203,0.22);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.05);
+}
+.btn-outline-modern:active {
+    transform: translateY(0);
+}
+
+/* Focus-visible ring for modern buttons */
+.btn-modern:focus-visible,
+.btn-outline-modern:focus-visible {
+    outline: none;
+    box-shadow: 0 0 0 3px rgba(255,192,203,0.28);
+}
+
+/* Shared navigation styles for vendor/shipper pages */
+.vendor-top-sticky { position: sticky; top: 75px; z-index: 100; }
+.profile-nav {
+    background: #fff;
+    border-radius: 16px;
+    padding: 0.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+.profile-nav .nav-link {
+    border-radius: 12px;
+    font-weight: 600;
+    color: var(--text-dark);
+    margin: 0 4px;
+    border: 2px solid transparent;
+    transition: all 0.3s ease;
+    padding: 0.8rem 1rem;
+}
+.profile-nav .nav-link:hover:not(.active) {
+    background-color: var(--primary-light, #fff8fa);
+}
+.profile-nav .nav-link.active {
+    background: linear-gradient(135deg, #FFC0CB 0%, #FFB6C1 100%);
+    color: white;
+    box-shadow: 0 4px 12px rgba(255, 192, 203, 0.35);
+}
+
+/* Make nav pills wrap nicely on small screens */
+.profile-nav .nav-item { flex-shrink: 0; margin-bottom: 0.5rem; }
+@media (max-width: 576px) {
+    .profile-nav .nav-link { padding: 0.6rem 0.65rem; font-size: 0.95rem; }
+}
+
+/* End shared navigation styles */
